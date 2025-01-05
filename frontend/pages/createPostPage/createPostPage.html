@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum Ware</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/static/styles/createPostPage.css">
+</head>
+<body>
+    <div class="container">
+        <form action="/createpost" method="post" enctype="multipart/form-data">
+            <h1>Create Post</h1>
+            <textarea id="title" name="title" rows="1" placeholder="Write your Title..." required></textarea>
+            <textarea id="content" name="content" rows="3" placeholder="Write your post content..." required></textarea>
+            <br>
+            <label for="photo">Upload Photo:</label>
+            <input type="file" id="photo" name="photo">
+            <br>
+            <label>Select Categories:</label>
+            <div class="category-buttons">
+                <input type="checkbox" id="go" name="go" value="true">
+                <label for="go">Go</label>
+
+                <input type="checkbox" id="html" name="html" value="true">
+                <label for="html">HTML</label>
+
+                <input type="checkbox" id="css" name="css" value="true">
+                <label for="css">CSS</label>
+
+                <input type="checkbox" id="php" name="php" value="true">
+                <label for="php">PHP</label>
+
+                <input type="checkbox" id="python" name="python" value="true">
+                <label for="python">Python</label>
+
+                <input type="checkbox" id="c" name="c" value="true">
+                <label for="c">C</label>
+
+                <input type="checkbox" id="cpp" name="cpp" value="true">
+                <label for="cpp">C++</label>
+
+                <input type="checkbox" id="csharp" name="csharp" value="true">
+                <label for="csharp">C#</label>
+
+                <input type="checkbox" id="js" name="js" value="true">
+                <label for="js">JavaScript</label>
+
+                <input type="checkbox" id="assembly" name="assembly" value="true">
+                <label for="assembly">Assembly</label>
+
+                <input type="checkbox" id="react" name="react" value="true">
+                <label for="react">React</label>
+
+                <input type="checkbox" id="flutter" name="flutter" value="true">
+                <label for="flutter">Flutter</label>
+
+                <input type="checkbox" id="rust" name="rust" value="true">
+                <label for="rust">Rust</label>
+            </div>
+            <button type="submit">
+                <img src="/frontend/static/icons/send.svg" alt="Create">
+            </button>
+        </form>
+        <img src="/frontend/static/icons/x.svg" class="close-button" onclick="window.location.href='/'" alt="Close">
+    </div>
+</body>
+</html>

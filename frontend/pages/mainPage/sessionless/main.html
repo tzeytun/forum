@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum Ware</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/static/styles/main.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo-container">
+            <img src="/frontend/static/icons/logo.png" alt="Logo" class="logo">
+            <h1>Forum Ware</h1>
+        </div>
+        <div class="auth-buttons">
+            <form action="/login" method="GET">
+                <button class="auth-button login">Login</button>
+            </form>
+            <form action="/register" method="GET">
+                <button class="auth-button join">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container">
+        <form action="/search" method="get">
+            <select id="filter" name="filter" class="search-select">
+                <option value="">Newest</option>
+                <option value="top">Top votes</option>
+            </select>
+            <select id="category" name="category" class="search-select">
+                <option value="">Any thing...</option>
+                <option value="GO">Go</option>
+                <option value="HTML">Html</option>
+                <option value="CSS">Css</option>
+                <option value="PHP">Php</option>
+                <option value="PYTHON">Python</option>
+                <option value="C">C</option>
+                <option value="CPP">C++</option>
+                <option value="CSHARP">C#</option>
+                <option value="JS">Java Script</option>
+                <option value="ASSEMBLY">Assembly</option>
+                <option value="REACT">React</option>
+                <option value="FLUTTER">Flutter</option>
+                <option value="RUST">Rust</option>
+            </select>
+            <input type="search" name="search" id="search" class="search-input">
+            <button type="submit" class="auth-button search-button">Search</button>
+        </form>
+
+        {{range .}}
+        <div class="post">
+            <form action="/post" method="GET" class="post-form">
+                <input type="hidden" name="id" value="{{.ID}}">
+                <button type="submit" class="post-link">
+                    <p class="post-title">{{.Title}}</p>
+                    <div class="post-user">
+                        <img src="/frontend/static/icons/username.svg" alt="User Icon" class="user-icon">
+                        <span class="username">{{.UserName}}</span>
+                    </div>
+                </button>
+            </form>
+        </div>
+        {{end}}
+    </div>
+</body>
+</html>

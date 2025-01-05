@@ -1,0 +1,78 @@
+body {
+    background-color: #292b35; /* Siyah arka plan */
+    color: #20B2AA; /* Yazı rengi */
+    font-family: 'Montserrat', sans-serif; /* Montserrat fontu */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #ffffff; /* Beyaz arka plan */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(63, 63, 63, 0.5);
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+h1 {
+    color: #292b35; /* Başlık rengi */
+}
+
+.warning {
+    color: #FF6347; /* Uyarı rengi (Domates kırmızısı) */
+    font-weight: bold;
+}
+
+.info {
+    color: #292b35; /* Bilgilendirme rengi */
+}
+
+form {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #292b35;
+}
+
+input[type="password"] {
+    background-color: #ffffff; /* Input background color */
+    color: #000000; /* Input text color */
+    border: 1px solid #FF6347; /* Border color */
+    padding: 10px;
+    width: calc(100% - 20px); /* Leave space for the icon and padding */
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+    margin-bottom: 10px;
+}
+
+input[type="password"]::placeholder {
+    color: #888; /* Placeholder rengi */
+    opacity: 0.7;
+}
+
+button {
+    background-color: #FF6347; /* Kırmızı buton rengi */
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #FF4500; /* Daha koyu kırmızı hover rengi */
+}

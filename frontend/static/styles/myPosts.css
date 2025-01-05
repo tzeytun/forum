@@ -1,0 +1,134 @@
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f3f2f3;
+    color: #333;
+}
+
+.header {
+    background-color: #006989;
+    color: #E88D67;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.back-button {
+    position: absolute;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.back-button img {
+    width: 24px;
+    height: 24px;
+}
+
+.container {
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.container h2 {
+    margin: 0 0 20px;
+    color: #006989;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin-bottom: 20px;
+}
+
+.post {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.post-link {
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: left;
+    font-size: 16px;
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    width: 100%;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.post-link:hover .post-title {
+    color: #006989;
+}
+
+.post-title {
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+    color: #006989;
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.user-info, .votes-info {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.delete-button img {
+    width: 20px;
+    height: 20px;
+    transition: transform 0.3s ease;
+}
+
+.delete-button img:hover {
+    transform: scale(1.2);
+}
+
+p {
+    margin: 0;
+    color: #006989;
+    font-style: italic;
+    font-weight: bold;
+}

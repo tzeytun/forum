@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum Ware</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/static/styles/postPage.css">
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-btn">
+            <img src="/frontend/static/icons/back.svg" alt="Back" class="back-icon">
+        </a>
+        <div class="post-user">
+            <img src="/frontend/static/icons/username.svg" alt="User Icon">
+            <span class="username">{{.Post.UserName}}</span>
+        </div>
+        <h1>{{.Post.Title}}</h1>
+        <p>{{.Post.Content}}</p>
+
+        {{if .Post.PhotoPath}}
+        <img src="{{.Post.PhotoPath}}" alt="Post Photo">
+        {{end}}
+        
+        <div class="vote-section">
+            <form action="/upvote" method="post" class="vote-form">
+                <input type="hidden" name="id" value="{{.Post.ID}}">
+                <input type="hidden" name="isComment" value="false">
+                <input type="hidden" name="post_id" value="{{.Post.ID}}">
+                <button type="submit" class="vote-btn">
+                    <img src="/frontend/static/icons/like.svg" alt="Up vote" class="vote-icon">
+                </button>
+            </form>
+            <span class="vote-count">{{.Post.LikeCount}}</span>
+            <form action="/downvote" method="post" class="vote-form">
+                <input type="hidden" name="id" value="{{.Post.ID}}">
+                <input type="hidden" name="isComment" value="false">
+                <input type="hidden" name="post_id" value="{{.Post.ID}}">
+                <button type="submit" class="vote-btn">
+                    <img src="/frontend/static/icons/dislike.svg" alt="Down vote" class="vote-icon">
+                </button>
+            </form>
+        </div>
+
+        <div class="separator"></div> <!-- İnce çizgi ayırıcı -->
+        
+        <form action="/createcomment" method="post">
+            <input type="hidden" name="id" value="{{.Post.ID}}">
+            <textarea id="comment" name="comment" rows="4" placeholder="Write your comment..."></textarea>
+            <button id="commentbutton" type="submit" class="comment-btn">
+                <img src="/frontend/static/icons/edit.svg" alt="Comment" class="comment-icon">
+            </button>
+        </form>
+
+        <h2>Comments</h2>
+        <div class="comment-section">
+            {{range .Comments}}
+            <div class="comment">
+                <div class="comment-header">
+                    <img src="/frontend/static/icons/username.svg" alt="User" class="comment-user-icon">
+                    <span>{{.UserName}}</span>
+                </div>
+                <p>{{.Comment}}</p>
+                <div class="vote-section">
+                    <form action="/upvote" method="post" class="vote-form">
+                        <input type="hidden" name="id" value="{{.ID}}">
+                        <input type="hidden" name="isComment" value="true">
+                        <input type="hidden" name="post_id" value="{{$.Post.ID}}">
+                        <button type="submit" class="vote-btn">
+                            <img src="/frontend/static/icons/like.svg" alt="Up vote" class="vote-icon">
+                        </button>
+                    </form>
+                    <span class="vote-count">{{.LikeCount}}</span>
+                    <form action="/downvote" method="post" class="vote-form">
+                        <input type="hidden" name="id" value="{{.ID}}">
+                        <input type="hidden" name="isComment" value="true">
+                        <input type="hidden" name="post_id" value="{{$.Post.ID}}">
+                        <button type="submit" class="vote-btn">
+                            <img src="/frontend/static/icons/dislike.svg" alt="Down vote" class="vote-icon">
+                        </button>
+                    </form>
+                </div>
+            </div>
+            {{else}}
+            <p class="no-comments">No comments yet.</p>
+            {{end}}
+        </div>
+    </div>
+</body>
+</html>

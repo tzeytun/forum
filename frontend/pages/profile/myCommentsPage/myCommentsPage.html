@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum Ware</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/frontend/static/styles/myComments.css">
+</head>
+<body>
+    <div class="header">
+        <a href="/" class="back-button">
+            <img src="/frontend/static/icons/backw.svg" alt="Back">
+        </a>
+        <h1>My Comments</h1>
+    </div>
+    <div class="container">
+        <h2>Your Comments</h2>
+        <hr>
+        {{if .}}
+        {{range .}}
+        <div class="post">
+            <form action="/post" method="GET">
+                <input type="hidden" name="id" value="{{.PostId}}">
+                <button type="submit" class="post-link">
+                    <div class="post-info">
+                        <div class="user-info">
+                            <img src="/frontend/static/icons/username.svg" alt="User Icon" class="icon"> 
+                            <span>{{.UserName}}</span>
+                        </div>
+                        <p id="comment">{{.Comment}}</p>
+                        <div class="votes-info">
+                            <img src="/frontend/static/icons/votes.svg" alt="Votes Icon" class="icon"> 
+                            <span>{{.LikeCount}}</span>
+                        </div>
+                    </div>
+                </button>
+            </form>
+            <form action="/deletecomment" method="post">
+                <input type="hidden" name="id" value="{{.ID}}">
+                <button type="submit" class="delete-button">
+                    <img src="/frontend/static/icons/delete.svg" alt="Delete">
+                </button>
+            </form>
+        </div>
+        {{end}}
+        {{else}}
+        <p>No created comments found.</p>
+        {{end}}
+    </div>
+</body>
+</html>
